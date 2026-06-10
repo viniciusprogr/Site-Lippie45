@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Lippie45 Kitchen — Smash burger artesanal feito na hora, na chapa, na sua frente. São Paulo." />
+<meta property="og:title" content="Lippie45 Kitchen — Hambúrguer Artesanal" />
+<meta property="og:description" content="Blend moído na hora, chapa a 250°C, pão brioche na manteiga. Smash burger com obsessão. São Paulo." />
+<meta property="og:image" content="assets/burger-final.jpeg" />
+<title>Lippie45 Kitchen — Hambúrguer Artesanal, São Paulo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#15110d;
+    --ink-soft:#2a221b;
+    --cream:#f3ead8;
+    --cream-2:#ebe0c9;
+    --paper:#fbf6ea;
+    --line:rgba(21,17,13,.18);
+    --line-cream:rgba(243,234,216,.22);
+    --amber:oklch(0.62 0.13 55);
+    --wine:oklch(0.40 0.10 22);
+    --gold:oklch(0.78 0.09 75);
+    --serif:"Cormorant Garamond","Apple Garamond",Georgia,serif;
+    --display:"DM Serif Display","Cormorant Garamond",Georgia,serif;
+    --sans:"Manrope","Helvetica Neue",Helvetica,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{overflow-x:hidden}
+  img,video{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:500}
+  .rule{height:1px;background:var(--line);border:0;width:100%}
+  .rule.cream{background:var(--line-cream)}
+
+  /* ------------- FADE IN ------------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  /* ------------- NAV ------------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    padding:22px 40px;color:var(--cream);
+    transition:background .35s ease,color .35s ease,padding .35s ease,border-color .35s ease;
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{background:rgba(251,246,234,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ink);border-bottom-color:var(--line);padding:14px 40px}
+  .nav .left,.nav .right{display:flex;gap:34px;align-items:center}
+  .nav .right{justify-content:flex-end}
+  .nav a.link{font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;opacity:.85;transition:opacity .2s}
+  .nav a.link:hover{opacity:1}
+  .mark{display:flex;flex-direction:column;align-items:center;line-height:1}
+  .mark .a{font-family:var(--serif);font-style:italic;font-size:26px;letter-spacing:.02em}
+  .mark .b{font-size:9px;letter-spacing:.5em;text-transform:uppercase;margin-top:4px;opacity:.7}
+  .nav .reserve{
+    border:1px solid currentColor;padding:10px 18px;border-radius:999px;
+    font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;
+    transition:background .2s,color .2s;
+  }
+  .nav .reserve:hover{background:var(--ink);color:var(--cream)}
+  .nav.scrolled .reserve:hover{background:var(--wine);border-color:var(--wine);color:var(--cream)}
+
+  /* ------------- HERO ------------- */
+  .hero{
+    position:relative;height:100vh;min-height:720px;
+    color:var(--cream);overflow:hidden;background:#0e0b08;
+  }
+  .hero video{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:saturate(.92) contrast(1.03) brightness(.78);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(120% 80% at 50% 30%,rgba(0,0,0,0) 0%,rgba(0,0,0,.45) 70%,rgba(0,0,0,.7) 100%),
+      linear-gradient(180deg,rgba(21,17,13,.55) 0%,rgba(21,17,13,.1) 30%,rgba(21,17,13,.55) 100%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;z-index:2;height:100%;
+    display:grid;grid-template-rows:1fr auto;padding:140px 56px 40px;
+  }
+  .hero-top{align-self:center;max-width:1100px}
+  .hero .eyebrow{display:inline-flex;align-items:center;gap:14px;opacity:.92}
+  .hero .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .hero h1{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(64px,9.5vw,168px);line-height:.92;letter-spacing:-.02em;
+    margin:28px 0 0;
+  }
+  .hero h1 .it{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--gold)}
+  .hero h1 .small{display:block;font-family:var(--serif);font-style:italic;font-weight:300;font-size:.34em;letter-spacing:.01em;margin-top:.2em;color:var(--cream-2)}
+  .hero-lead{
+    margin-top:36px;max-width:520px;font-size:15px;line-height:1.7;color:rgba(243,234,216,.85)
+  }
+  .hero-cta{
+    margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;
+    padding:16px 26px;border-radius:999px;
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;
+    border:1px solid transparent;cursor:pointer;transition:transform .25s ease,background .25s,color .25s,box-shadow .25s;
+  }
+  .btn.solid{background:var(--cream);color:var(--ink)}
+  .btn.solid:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+  .btn.ghost{background:transparent;color:var(--cream);border-color:rgba(243,234,216,.5)}
+  .btn.ghost:hover{background:rgba(243,234,216,.08);border-color:rgba(243,234,216,.8)}
+  .btn .arrow{display:inline-block;transform:translateY(-1px)}
+
+  .hero-bottom{
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:40px;
+    padding-top:30px;border-top:1px solid rgba(243,234,216,.18);
+  }
+  .hero-meta{display:flex;flex-direction:column;gap:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(243,234,216,.75)}
+  .hero-meta b{color:var(--cream);font-weight:600}
+  .hero-scroll{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(243,234,216,.7)}
+  .hero-scroll .line{width:1px;height:48px;background:rgba(243,234,216,.3);position:relative;overflow:hidden}
+  .hero-scroll .line::after{content:"";position:absolute;top:-48px;left:0;width:1px;height:48px;background:var(--gold);animation:drip 2.4s ease-in-out infinite}
+  @keyframes drip{0%{top:-48px}60%{top:48px}100%{top:48px}}
+  .hero-quote{
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    text-align:right;font-size:18px;line-height:1.4;color:rgba(243,234,216,.85);
+    max-width:340px;justify-self:end;
+  }
+  .hero-quote span{display:block;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-style:normal;color:rgba(243,234,216,.55);margin-top:10px;font-family:var(--sans)}
+
+  /* ------------- TICKER ------------- */
+  .ticker{background:var(--ink);color:var(--cream);overflow:hidden;border-top:1px solid var(--ink-soft);border-bottom:1px solid var(--ink-soft)}
+  .ticker .track{display:flex;gap:60px;padding:18px 0;white-space:nowrap;animation:tk 38s linear infinite}
+  .ticker span{font-family:var(--serif);font-style:italic;font-size:22px;font-weight:300;opacity:.88}
+  .ticker .dot{font-size:18px;color:var(--gold);align-self:center}
+  @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ------------- SECTION SHELL ------------- */
+  section{padding:130px 56px}
+  .section-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;margin-bottom:80px}
+  .section-head .num{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--amber);letter-spacing:.04em}
+  .section-head h2{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(48px,6vw,96px);line-height:.95;letter-spacing:-.015em;margin:18px 0 0;
+  }
+  .section-head h2 em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--wine)}
+  .section-head .aside{max-width:380px;font-size:14px;line-height:1.7;color:var(--ink-soft);text-align:left}
+
+  /* ------------- CONCEITO ------------- */
+  .philo{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start;padding-top:100px}
+  .philo-left{position:sticky;top:120px}
+  .philo-left .tag{display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber)}
+  .philo-left .tag .pip{width:24px;height:1px;background:var(--amber)}
+  .philo-left h3{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(40px,4.6vw,72px);line-height:1.02;letter-spacing:-.015em;margin:26px 0 0;
+  }
+  .philo-left h3 em{font-family:var(--serif);font-style:italic;font-weight:300}
+  .philo-right p{font-size:16px;line-height:1.8;color:var(--ink-soft);margin:0 0 22px}
+  .philo-right p:first-child::first-letter{
+    font-family:var(--display);font-size:80px;line-height:.85;float:left;
+    padding:6px 14px 0 0;color:var(--wine);font-weight:400;
+  }
+  .philo-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:50px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .philo-stats > div{padding:24px 0;border-right:1px solid var(--line)}
+  .philo-stats > div:last-child{border-right:0}
+  .philo-stats .n{font-family:var(--display);font-size:42px;line-height:1;letter-spacing:-.01em}
+  .philo-stats .l{font-size:10px;letter-spacing:.28em;text-transform:uppercase;margin-top:8px;color:var(--ink-soft)}
+
+  /* ------------- CARDÁPIO ------------- */
+  .menu{background:var(--cream);color:var(--ink);position:relative}
+  .menu::before{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(21,17,13,.04) 1px,transparent 1.4px);
+    background-size:6px 6px;pointer-events:none;
+    mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent)
+  }
+  .menu .section-head h2 em{color:var(--amber)}
+  .dishes{display:flex;flex-direction:column;gap:0;position:relative}
+  .dish{
+    display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center;
+    padding:60px 0;border-top:1px solid var(--line);
+  }
+  .dish:last-child{border-bottom:1px solid var(--line)}
+  .dish:nth-child(even){grid-template-columns:1.1fr .9fr}
+  .dish:nth-child(even) .dish-media{order:2}
+  .dish-media{
+    position:relative;aspect-ratio:5/4;overflow:hidden;border-radius:2px;
+  }
+  .dish-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .dish:hover .dish-media img{transform:scale(1.04)}
+  .dish-media .tag{
+    position:absolute;top:18px;left:18px;background:var(--paper);padding:8px 12px;border-radius:2px;
+    font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--wine);font-weight:600;
+  }
+  .dish-text .no{font-family:var(--serif);font-style:italic;color:var(--amber);font-size:14px;letter-spacing:.04em}
+  .dish-text h4{font-family:var(--display);font-weight:400;font-size:clamp(36px,3.6vw,56px);line-height:1;letter-spacing:-.01em;margin:14px 0 6px}
+  .dish-text h4 em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--wine)}
+  .dish-text .it-name{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:18px;margin-bottom:24px;display:block}
+  .dish-text p{font-size:15px;line-height:1.7;color:var(--ink-soft);max-width:480px;margin:0 0 28px}
+  .dish-text .meta{display:flex;align-items:center;gap:28px;border-top:1px solid var(--line);padding-top:18px;max-width:460px}
+  .dish-text .meta .price{font-family:var(--display);font-size:28px;color:var(--ink)}
+  .dish-text .meta .where{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
+  .dish-text .meta .where b{color:var(--ink);font-weight:600}
+  .dish-text .more{margin-top:24px;display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--wine);font-weight:600;border-bottom:1px solid var(--wine);padding-bottom:4px;transition:opacity .2s}
+  .dish-text .more:hover{opacity:.7}
+
+  .menu-foot{margin-top:80px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px;padding-top:34px;border-top:1px solid var(--line)}
+  .menu-foot p{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink-soft);max-width:520px;margin:0}
+
+  /* ------------- A CASA ------------- */
+  .casas{background:var(--ink);color:var(--cream)}
+  .casas .section-head h2{color:var(--cream)}
+  .casas .section-head h2 em{color:var(--gold)}
+  .casas .section-head .num{color:var(--gold)}
+  .casas .section-head .aside{color:rgba(243,234,216,.7)}
+  .houses{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .house{display:flex;flex-direction:column;gap:24px}
+  .house-img{aspect-ratio:4/3;overflow:hidden;background:#000;position:relative}
+  .house-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .house:hover .house-img img{transform:scale(1.04)}
+  .house-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+  .house h3{font-family:var(--display);font-weight:400;font-size:42px;line-height:1;margin:0;letter-spacing:-.01em}
+  .house h3 em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--gold)}
+  .house .est{font-family:var(--serif);font-style:italic;font-size:14px;color:rgba(243,234,216,.55)}
+  .house p{font-size:14px;line-height:1.75;color:rgba(243,234,216,.78);margin:0;max-width:480px}
+  .house-meta{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;border-top:1px solid var(--line-cream)}
+  .house-meta > div{padding:18px 18px 18px 0;border-right:1px solid var(--line-cream)}
+  .house-meta > div:last-child{border-right:0;padding-left:18px;padding-right:0}
+  .house-meta .k{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(243,234,216,.55)}
+  .house-meta .v{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--cream);margin-top:8px;line-height:1.3}
+
+  /* ------------- CHEF ------------- */
+  .chef{background:var(--ink);color:var(--cream)}
+  .chef-grid{display:grid;grid-template-columns:.82fr 1fr;gap:80px;align-items:center}
+  .chef-portrait{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:2px;background:#000}
+  .chef-portrait img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .chef-portrait:hover img{transform:scale(1.03)}
+  .chef-portrait .badge{position:absolute;left:18px;bottom:18px;background:var(--gold);color:var(--ink);font-size:9px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;padding:9px 13px;border-radius:2px}
+  .chef-text .num{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--gold);letter-spacing:.04em}
+  .chef-text h2{font-family:var(--display);font-weight:400;font-size:clamp(42px,5vw,80px);line-height:.98;letter-spacing:-.015em;margin:16px 0 0}
+  .chef-text h2 em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--gold)}
+  .chef-text .role{font-family:var(--serif);font-style:italic;font-size:20px;color:rgba(243,234,216,.7);display:block;margin:10px 0 28px}
+  .chef-text p{font-size:16px;line-height:1.85;color:rgba(243,234,216,.82);margin:0 0 22px;max-width:520px}
+  .chef-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line-cream);border-bottom:1px solid var(--line-cream)}
+  .chef-facts > div{padding:22px 18px 22px 0;border-right:1px solid var(--line-cream)}
+  .chef-facts > div:last-child{border-right:0}
+  .chef-facts .n{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.05;color:var(--cream)}
+  .chef-facts .l{font-size:9px;letter-spacing:.28em;text-transform:uppercase;margin-top:8px;color:rgba(243,234,216,.55)}
+
+  /* ------------- DELIVERY ------------- */
+  .delivery{background:var(--paper)}
+  .deliv-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center}
+  .deliv-left .num{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--amber);letter-spacing:.04em}
+  .deliv-left h2{font-family:var(--display);font-weight:400;font-size:clamp(48px,5.4vw,84px);line-height:.96;letter-spacing:-.015em;margin:18px 0 30px}
+  .deliv-left h2 em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--amber)}
+  .deliv-left p{font-size:15px;line-height:1.75;color:var(--ink-soft);max-width:480px;margin:0 0 36px}
+  .deliv-phone{
+    display:inline-flex;align-items:center;gap:18px;padding:20px 28px;
+    background:var(--ink);color:var(--cream);border-radius:999px;
+    transition:background .2s;
+  }
+  .deliv-phone:hover{background:var(--wine)}
+  .deliv-phone .ico{width:34px;height:34px;border-radius:50%;background:var(--gold);color:var(--ink);display:grid;place-items:center;font-size:14px;flex-shrink:0}
+  .deliv-phone .num-big{font-family:var(--display);font-size:24px;letter-spacing:.04em}
+  .deliv-phone .lab{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(243,234,216,.6);margin-top:2px;display:block}
+
+  .deliv-channels{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:48px;background:var(--line);border:1px solid var(--line)}
+  .deliv-channels > div{background:var(--paper);padding:24px 22px}
+  .deliv-channels .k{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft)}
+  .deliv-channels .v{font-family:var(--serif);font-style:italic;font-size:20px;margin-top:8px}
+  .deliv-channels .h{font-size:11px;color:var(--ink-soft);margin-top:4px}
+
+  .map-card{
+    background:var(--cream);border-radius:2px;padding:40px;
+    position:relative;overflow:hidden;
+  }
+  .map-card .label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber)}
+  .map-card h3{font-family:var(--display);font-size:36px;font-weight:400;margin:8px 0 26px;letter-spacing:-.01em}
+  .map-card h3 em{font-family:var(--serif);font-style:italic;color:var(--wine)}
+  .map-list{display:flex;flex-direction:column;gap:0}
+  .map-list .row{display:grid;grid-template-columns:48px 1fr auto;gap:18px;align-items:center;padding:20px 0;border-top:1px solid var(--line)}
+  .map-list .row:last-child{border-bottom:1px solid var(--line)}
+  .map-list .pin{width:40px;height:40px;border-radius:50%;background:var(--wine);color:var(--cream);display:grid;place-items:center;font-family:var(--display);font-size:16px;flex-shrink:0}
+  .map-list .name{font-family:var(--display);font-size:22px;line-height:1.1;letter-spacing:-.005em}
+  .map-list .addr{font-size:12px;color:var(--ink-soft);margin-top:4px;letter-spacing:.04em}
+  .map-list .links{display:flex;gap:10px}
+  .map-list .links a{
+    font-size:9px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;
+    padding:8px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);
+    transition:border-color .2s,color .2s;
+  }
+  .map-list .links a:hover{border-color:var(--ink);color:var(--ink)}
+
+  /* ------------- FOOTER ------------- */
+  footer{background:var(--ink);color:var(--cream);padding:90px 56px 30px}
+  .foot-top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid var(--line-cream)}
+  .foot-mark .logo{width:96px;height:96px;border-radius:6px;object-fit:cover;margin-bottom:18px}
+  .foot-mark .name{font-family:var(--display);font-size:48px;line-height:1;letter-spacing:-.01em}
+  .foot-mark .name em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--gold)}
+  .foot-mark p{font-family:var(--serif);font-style:italic;font-size:18px;color:rgba(243,234,216,.7);margin-top:14px;line-height:1.5;max-width:300px}
+  .foot-col h5{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin:0 0 22px;font-weight:600}
+  .foot-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+  .foot-col li{font-family:var(--serif);font-style:italic;font-size:17px;color:rgba(243,234,216,.85)}
+  .foot-col li small{display:block;font-family:var(--sans);font-style:normal;font-size:11px;color:rgba(243,234,216,.5);margin-top:2px;letter-spacing:.05em}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(243,234,216,.55)}
+  .foot-bottom .links{display:flex;gap:24px}
+  .foot-bottom .links a:hover{color:rgba(243,234,216,.9)}
+
+  /* ------------- RESPONSIVE ------------- */
+  @media (max-width:900px){
+    .nav{padding:18px 22px;grid-template-columns:auto auto}
+    .nav .left,.nav .right .link{display:none}
+    section{padding:80px 22px}
+    .hero-inner{padding:120px 22px 30px}
+    .hero-bottom{grid-template-columns:1fr;gap:24px}
+    .hero-quote{text-align:left;justify-self:start}
+    .section-head{grid-template-columns:1fr;margin-bottom:50px}
+    .philo,.deliv-grid,.chef-grid{grid-template-columns:1fr;gap:48px}
+    .chef-facts{grid-template-columns:1fr}
+    .chef-facts > div{border-right:0;border-bottom:1px solid var(--line-cream)}
+    .philo-left{position:static}
+    .philo-stats{grid-template-columns:1fr;border-bottom:0}
+    .philo-stats > div{border-right:0;border-bottom:1px solid var(--line)}
+    .dish,.dish:nth-child(even){grid-template-columns:1fr;gap:24px}
+    .dish:nth-child(even) .dish-media{order:0}
+    .houses{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:1fr 1fr;gap:40px}
+    .deliv-channels{grid-template-columns:1fr}
+  }
+
+  @media (max-width:600px){
+    .hero h1{font-size:clamp(52px,14vw,90px)}
+    .foot-top{grid-template-columns:1fr}
+    .hero-bottom{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ====================== NAV ====================== -->
+<nav class="nav" id="nav">
+  <div class="left">
+    <a class="link" href="#conceito">Conceito</a>
+    <a class="link" href="#chef">Chef</a>
+    <a class="link" href="#cardapio">Cardápio</a>
+    <a class="link" href="#casa">A Casa</a>
+    <a class="link" href="#delivery">Delivery</a>
+  </div>
+  <a class="mark" href="#">
+    <span class="a">Lippie45</span>
+    <span class="b">kitchen</span>
+  </a>
+  <div class="right">
+    <a class="link" href="#">Português · EN</a>
+    <a class="reserve" href="#delivery">Pedir agora</a>
+  </div>
+</nav>
+
+<!-- ====================== HERO ====================== -->
+<header class="hero">
+  <video autoplay loop muted playsinline poster="assets/burger-final.jpeg">
+    <source src="assets/burger-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-inner">
+    <div class="hero-top">
+      <span class="eyebrow"><span class="dot"></span>Hamburgueria artesanal · São Paulo</span>
+      <h1>
+        <span class="it">Smash</span> do<br />
+        bom,<br />
+        <span class="small">no ponto certo da chapa.</span>
+      </h1>
+      <p class="hero-lead">
+        Blend de carne moído na hora, prensado na chapa a 250°C até formar aquela
+        crosta. Pão brioche na manteiga, cheddar derretido de verdade e cebola
+        caramelizada lenta. Smash burger feito com a obsessão de quem leva hambúrguer
+        a sério.
+      </p>
+      <div class="hero-cta">
+        <a class="btn solid" href="#cardapio">Ver o cardápio <span class="arrow">→</span></a>
+        <a class="btn ghost" href="#delivery">Pedir delivery</a>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hero-meta">
+        <span>Hoje · Terça-feira</span>
+        <span><b>18h00 — 23h30</b> · Chapa ligada</span>
+      </div>
+      <div class="hero-scroll">
+        <span>scroll</span>
+        <span class="line"></span>
+      </div>
+      <p class="hero-quote">
+        "A gente não faz lanche rápido. A gente faz o lanche certo — moído na hora,
+        prensado na hora, montado na sua frente."
+        <span>— Lippie, fundador</span>
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- ====================== TICKER ====================== -->
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span>Chapa a 250°C</span><span class="dot">✦</span>
+    <span>Blend moído na hora</span><span class="dot">✦</span>
+    <span>Pão brioche na manteiga</span><span class="dot">✦</span>
+    <span>Cheddar de verdade</span><span class="dot">✦</span>
+    <span>Cebola caramelizada lenta</span><span class="dot">✦</span>
+    <span>Chapa a 250°C</span><span class="dot">✦</span>
+    <span>Blend moído na hora</span><span class="dot">✦</span>
+    <span>Pão brioche na manteiga</span><span class="dot">✦</span>
+    <span>Cheddar de verdade</span><span class="dot">✦</span>
+    <span>Cebola caramelizada lenta</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- ====================== CONCEITO ====================== -->
+<section id="conceito" class="philo">
+  <div class="philo-left reveal">
+    <div class="tag"><span class="pip"></span>I · Conceito</div>
+    <h3>Uma chapa,<br />um <em>blend</em>,<br />zero atalho.</h3>
+  </div>
+  <div class="philo-right reveal">
+    <p>
+      A Lippie45 Kitchen nasceu de uma chapa pequena e de uma ideia teimosa: que
+      smash burger de verdade não precisa de truque, só de técnica. Carne boa,
+      moída todo dia, prensada com força na chapa quente até virar crosta. Foi
+      assim na primeira noite e é assim até hoje.
+    </p>
+    <p>
+      Nosso blend é fechado por nós, com cortes selecionados e o ponto exato de
+      gordura. Cada disco é moído na casa, pesado e prensado na hora do pedido.
+      O pão é brioche, selado na manteiga. O cheddar é cheddar — derrete, escorre
+      e cobre. Nada de queijo de mentira.
+    </p>
+    <p>
+      A cozinha é aberta de propósito: você vê a carne bater na chapa, o queijo
+      derreter e a cebola caramelizar devagar. É a única forma que a gente conhece
+      de servir um lanche — feito na sua frente, montado na hora e entregue ainda
+      pingando.
+    </p>
+
+    <div class="philo-stats">
+      <div><div class="n">100<small style="font-size:18px">%</small></div><div class="l">Moído na casa</div></div>
+      <div><div class="n">250<small style="font-size:18px">°</small></div><div class="l">Chapa de ferro</div></div>
+      <div><div class="n">45<small style="font-size:18px">s</small></div><div class="l">Por lado, no smash</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CHEF ====================== -->
+<section id="chef" class="chef">
+  <div class="chef-grid">
+    <div class="chef-portrait reveal">
+      <span class="badge">Chef · Lippie45</span>
+      <img src="assets/chef.jpeg" alt="Chef Luis Felipe Baptista" loading="lazy" />
+    </div>
+    <div class="chef-text reveal">
+      <div class="num">II · O Chef</div>
+      <h2>Luis Felipe <em>Baptista</em></h2>
+      <span class="role">formado em gastronomia</span>
+      <p>
+        Luis Felipe Baptista é o chef por trás da Lippie45. Formado em gastronomia,
+        levou a curiosidade da cozinha a sério desde cedo — do moedor à chapa, do
+        primeiro corte ao último ponto de queijo.
+      </p>
+      <p>
+        Em busca de técnica e repertório, foi para Portugal viver uma breve
+        experiência na cozinha, lado a lado com quem cozinha de verdade. De lá
+        trouxe disciplina, respeito ao ingrediente e a certeza de que o simples,
+        bem feito, é imbatível.
+      </p>
+      <p>
+        Voltou para São Paulo com um propósito claro: trazer o poder da gastronomia
+        para o smash burger do dia a dia. Cada disco que sai da chapa carrega essa
+        história — feito na hora, na sua frente, com mão de chef.
+      </p>
+      <div class="chef-facts">
+        <div><div class="n">Gastronomia</div><div class="l">Formação</div></div>
+        <div><div class="n">Portugal</div><div class="l">Experiência na cozinha</div></div>
+        <div><div class="n">São Paulo</div><div class="l">Onde cozinha hoje</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CARDÁPIO ====================== -->
+<section id="cardapio" class="menu">
+  <div class="section-head reveal">
+    <div>
+      <div class="num">III · Cardápio</div>
+      <h2>Destaques <em>da casa</em></h2>
+    </div>
+    <p class="aside">
+      Cardápio curto e honesto, com os smash que fizeram a fama da Lippie45 e a
+      tábua pra dividir. Estes três definem a casa.
+    </p>
+  </div>
+
+  <div class="dishes">
+
+    <article class="dish reveal">
+      <div class="dish-media">
+        <span class="tag">Smash</span>
+        <img src="assets/burger-final.jpeg" alt="Smash Lippie Clássico com cebola caramelizada" loading="lazy" />
+      </div>
+      <div class="dish-text">
+        <div class="no">N.º 01 / Smash</div>
+        <h4>Lippie <em>Clássico</em></h4>
+        <span class="it-name">o que começou tudo</span>
+        <p>
+          Dois discos de blend prensados na chapa, cheddar duplo derretido, cebola
+          caramelizada lenta e nosso molho da casa, no pão brioche selado na
+          manteiga. Simples, pesado e no ponto — do jeito que smash burger tem que
+          ser.
+        </p>
+        <div class="meta">
+          <span class="price">R$ 36</span>
+          <span class="where">No salão e <b>delivery</b></span>
+        </div>
+        <a class="more" href="#">Montar o meu →</a>
+      </div>
+    </article>
+
+    <article class="dish reveal">
+      <div class="dish-media">
+        <span class="tag">Cheddar</span>
+        <img src="assets/burger-build.jpeg" alt="Cheddar derretido escorrendo sobre o disco de carne" loading="lazy" />
+      </div>
+      <div class="dish-text">
+        <div class="no">N.º 02 / Smash</div>
+        <h4>Duplo <em>Cheddar</em></h4>
+        <span class="it-name">para quem é do queijo</span>
+        <p>
+          Para os viciados em queijo: blend duplo coberto por uma camada generosa
+          de cheddar cremoso, derretido na chapa e despejado por cima até cobrir a
+          carne inteira. Picles crocante e um toque de mostarda pra cortar a
+          gordura. Pão brioche, claro.
+        </p>
+        <div class="meta">
+          <span class="price">R$ 42</span>
+          <span class="where">No salão e <b>delivery</b></span>
+        </div>
+        <a class="more" href="#">Montar o meu →</a>
+      </div>
+    </article>
+
+    <article class="dish reveal">
+      <div class="dish-media">
+        <span class="tag">Tábua</span>
+        <img src="assets/board.jpeg" alt="Tábua na brasa com frango, linguiça e pães" loading="lazy" />
+      </div>
+      <div class="dish-text">
+        <div class="no">N.º 03 / Tábua</div>
+        <h4>Tábua <em>na brasa</em></h4>
+        <span class="it-name">para dividir na mesa</span>
+        <p>
+          Nossa tábua para a mesa toda: frango grelhado temperado, linguiça
+          artesanal na brasa, tudo finalizado com cebolinha fresca. Acompanha pão
+          na chapa, salada da casa com chips de banana-da-terra e o molho amarelo
+          que ninguém resiste.
+        </p>
+        <div class="meta">
+          <span class="price">R$ 89</span>
+          <span class="where">Serve <b>2 a 3 pessoas</b></span>
+        </div>
+        <a class="more" href="#">Ver a tábua →</a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="menu-foot reveal">
+    <p>"A gente não tem cardápio gigante. A gente tem cardápio honesto."</p>
+    <a class="btn solid" style="background:var(--ink);color:var(--cream)" href="#">Cardápio completo <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- ====================== A CASA ====================== -->
+<section id="casa" class="casas">
+  <div class="section-head reveal">
+    <div>
+      <div class="num">IV · A Casa</div>
+      <h2>O <em>lugar</em> e quem faz</h2>
+    </div>
+    <p class="aside">
+      Um salão pequeno, parede vermelha e amarela, cerveja gelada no balde e a
+      cozinha à vista. A Lippie45 é do tamanho certo pra fazer tudo na hora.
+    </p>
+  </div>
+
+  <div class="houses">
+    <div class="house reveal">
+      <div class="house-img">
+        <img src="assets/venue.jpeg" alt="Salão da Lippie45 com mesas, parede vermelha e cerveja no balde" loading="lazy" />
+      </div>
+      <div class="house-head">
+        <h3>O <em>Salão</em></h3>
+        <span class="est">mesa &amp; balde</span>
+      </div>
+      <p>
+        Parede vermelha, parede amarela e aquele clima de bar de esquina que a gente
+        ama. Mesa de madeira, TV ligada, balde de cerveja gelada e espaço pra
+        dividir a tábua com os amigos. Vem do jeito que está.
+      </p>
+      <div class="house-meta">
+        <div>
+          <div class="k">Ambiente</div>
+          <div class="v">Bar &amp; mesa · ao ar livre</div>
+        </div>
+        <div>
+          <div class="k">Cozinha</div>
+          <div class="v">Ter — Dom · 18h às 23h30</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="house reveal">
+      <div class="house-img">
+        <img src="assets/board-sign.jpeg" alt="Tábua na brasa em frente ao letreiro da Lippie45" loading="lazy" />
+      </div>
+      <div class="house-head">
+        <h3>Na <em>Brasa</em></h3>
+        <span class="est">cozinha à vista</span>
+      </div>
+      <p>
+        A cozinha fica à vista de propósito: você acompanha a carne bater na chapa,
+        a linguiça pegar a brasa e a montagem acontecer na hora. Aqui ninguém
+        terceiriza o que importa — é tudo feito na casa, do moedor à mesa.
+      </p>
+      <div class="house-meta">
+        <div>
+          <div class="k">Cozinha</div>
+          <div class="v">Aberta · à vista</div>
+        </div>
+        <div>
+          <div class="k">Blend</div>
+          <div class="v">Moído todos os dias</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== DELIVERY ====================== -->
+<section id="delivery" class="delivery">
+  <div class="deliv-grid">
+
+    <div class="deliv-left reveal">
+      <div class="num">V · Delivery</div>
+      <h2>O smash<br /><em>até você.</em></h2>
+      <p>
+        Entregamos num raio de seis quilômetros, em embalagem que mantém a crosta
+        firme e o queijo no ponto. Pedido por telefone ou WhatsApp — a gente prefere
+        falar com você a esconder tudo atrás de um app.
+      </p>
+
+      <a class="deliv-phone" href="tel:+551150514545">
+        <span class="ico">☏</span>
+        <span>
+          <span class="lab">Para pedir, chame</span>
+          <span class="num-big">(11) 5051-4545</span>
+        </span>
+      </a>
+
+      <div class="deliv-channels">
+        <div>
+          <div class="k">Horário</div>
+          <div class="v">Ter — Dom</div>
+          <div class="h">18h às 23h30</div>
+        </div>
+        <div>
+          <div class="k">Raio</div>
+          <div class="v">6 km</div>
+          <div class="h">a partir da casa</div>
+        </div>
+        <div>
+          <div class="k">Mínimo</div>
+          <div class="v">R$ 40</div>
+          <div class="h">+ frete por distância</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-card reveal">
+      <div class="label">Onde a chapa está ligada</div>
+      <h3>Nossa <em>casa</em></h3>
+      <div class="map-list">
+        <div class="row">
+          <div class="pin">L</div>
+          <div>
+            <div class="name">Lippie45 Kitchen</div>
+            <div class="addr">Rua da Chapa, 45 · São Paulo, SP</div>
+          </div>
+          <div class="links">
+            <a href="#">Maps</a><a href="#">Waze</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="pin">W</div>
+          <div>
+            <div class="name">WhatsApp · Pedidos</div>
+            <div class="addr">(11) 5051-4545 · peça pelo zap</div>
+          </div>
+          <div class="links">
+            <a href="#">Abrir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-mark">
+      <img class="logo" src="assets/logo.jpeg" alt="Logo Lippie45 Kitchen" loading="lazy" />
+      <div class="name">Lippie<em>45</em></div>
+      <p>Hamburgueria artesanal. Smash feito na hora, na chapa, na sua frente. São Paulo.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Casa</h5>
+      <ul>
+        <li>Salão<small>Rua da Chapa, 45</small></li>
+        <li>Delivery<small>raio de 6 km</small></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Pedir</h5>
+      <ul>
+        <li>Telefone<small>(11) 5051-4545</small></li>
+        <li>WhatsApp<small>peça pelo zap</small></li>
+        <li>Eventos<small>tábua pra grupos</small></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Acompanhe</h5>
+      <ul>
+        <li>Instagram<small>@lippie45</small></li>
+        <li>Novidades<small>promo da semana</small></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© MMXXVI · Lippie45 Kitchen</span>
+    <div class="links">
+      <a href="#">Política de privacidade</a>
+      <a href="#">Termos</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Scroll-reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Day-of-week label in hero
+  const days = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
+  const meta = document.querySelector('.hero-meta');
+  if (meta) {
+    const today = days[new Date().getDay()];
+    meta.querySelector('span:first-child').textContent = 'Hoje · ' + today;
+  }
+</script>
+
+</body>
+</html>
