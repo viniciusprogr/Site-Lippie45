@@ -212,28 +212,6 @@
   .menu-foot{margin-top:80px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px;padding-top:34px;border-top:1px solid var(--line)}
   .menu-foot p{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink-soft);max-width:520px;margin:0}
 
-  /* ------------- COLEÇÃO (CARD GRID) ------------- */
-  .coll-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative}
-  .coll-card{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:3px;overflow:hidden}
-  .coll-media{position:relative;aspect-ratio:4/5;overflow:hidden;background:#000}
-  .coll-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
-  .coll-card:hover .coll-media img{transform:scale(1.05)}
-  .coll-media .no{position:absolute;top:16px;left:16px;font-family:var(--display);font-size:26px;color:var(--cream);text-shadow:0 1px 8px rgba(0,0,0,.5)}
-  .coll-media .tag{position:absolute;top:18px;right:16px;background:var(--paper);color:var(--wine);font-size:8px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;padding:6px 9px;border-radius:2px}
-  .coll-media.placeholder{background:linear-gradient(135deg,#2a221b 0%,#3a2c20 100%);display:flex;align-items:center;justify-content:center}
-  .coll-media.placeholder::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent 0 18px,rgba(243,234,216,.04) 18px 19px)}
-  .coll-media.placeholder .ph{position:relative;font-family:"Courier New",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,234,216,.55);text-align:center;padding:20px;line-height:1.7}
-  .coll-media.placeholder .ph strong{display:block;font-size:13px;color:var(--gold);margin-top:6px;letter-spacing:.26em}
-  .coll-body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1}
-  .coll-body h4{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.02;letter-spacing:-.01em;margin:0 0 4px}
-  .coll-body h4 em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--wine)}
-  .coll-body .it-name{font-family:var(--serif);font-style:italic;color:var(--amber);font-size:15px;margin-bottom:18px;display:block}
-  .coll-body p{font-size:13.5px;line-height:1.7;color:var(--ink-soft);margin:0 0 24px}
-  .coll-body .foot{margin-top:auto;display:flex;align-items:center;gap:16px;border-top:1px solid var(--line);padding-top:16px}
-  .coll-body .price{font-family:var(--display);font-size:26px;color:var(--ink)}
-  .coll-body .gram{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
-  .coll-body .gram b{color:var(--wine);font-weight:600}
-
   /* ------------- CASAS ------------- */
   .casas{background:var(--ink);color:var(--cream)}
   .casas .section-head h2{color:var(--cream)}
@@ -393,7 +371,6 @@
     .dish:nth-child(even) .dish-media{order:0}
     .houses{grid-template-columns:1fr}
     .street-grid{grid-template-columns:1fr}
-    .coll-grid{grid-template-columns:1fr 1fr}
     .foot-top{grid-template-columns:1fr 1fr;gap:40px}
     .deliv-channels{grid-template-columns:1fr}
   }
@@ -431,7 +408,6 @@
     .hero-meta{font-size:10px;letter-spacing:.14em}
     section{padding:64px 20px}
     .foot-top{grid-template-columns:1fr;gap:34px}
-    .coll-grid{grid-template-columns:1fr}
   }
 
   /* Short / landscape screens */
@@ -631,164 +607,79 @@
       <h2>Coleção <em>do Chef Lippie</em></h2>
     </div>
     <p class="aside">
-      A linha autoral do Chef Lippie: sanduíches em ciabatta, baguete parmesão e
-      pão artesano, com proteínas preparadas na casa e ingredientes de pequenos
-      produtores. Cada mordida, uma novidade.
+      Cardápio curto e honesto, com os smash que fizeram a fama da Lippie45 e a
+      tábua pra dividir. Estes três definem a casa.
     </p>
   </div>
 
-  <div class="coll-grid">
+  <div class="dishes">
 
-    <article class="coll-card reveal">
-      <div class="coll-media placeholder">
-        <span class="no">01</span>
-        <span class="tag">Suíno</span>
-        <div class="ph">[ foto editorial ]<strong>Parma</strong>lombo curado · ciabatta</div>
+    <!-- ---- Dish 1 ---- -->
+    <article class="dish reveal">
+      <div class="dish-media">
+        <span class="tag">Smash</span>
+        <img src="assets/burger-final.jpeg" alt="Smash Lippie Clássico com cebola caramelizada" loading="lazy" />
       </div>
-      <div class="coll-body">
-        <h4>Parma</h4>        <span class="it-name">lombo curado &amp; pesto</span>
+      <div class="dish-text">
+        <div class="no">N.º 01 / Smash</div>
+        <h4>Lippie <em>Clássico</em></h4>
+        <span class="it-name">o que começou tudo</span>
         <p>
-          130g de lombo suíno curado artesanalmente, queijo Gouda, tomate seco e
-          molho pesto, servidos no pão ciabatta.
+          Dois discos de blend prensados na chapa, cheddar duplo derretido, cebola
+          caramelizada lenta e nosso molho da casa, no pão brioche selado na
+          manteiga. Simples, pesado e no ponto — do jeito que smash burger tem que
+          ser.
         </p>
-        <div class="foot">
-          <span class="gram"><b>130g</b><br />pão ciabatta</span>
+        <div class="meta">
+          <span class="where">No salão e <b>delivery</b></span>
         </div>
+        <a class="more" href="#">Montar o meu →</a>
       </div>
     </article>
 
-    <article class="coll-card reveal">
-      <div class="coll-media">
-        <span class="no">02</span>
-        <span class="tag">Bovino</span>
-        <img src="assets/coll-rosbife.jpeg" alt="Rosbife Especial de lagarto em ciabatta" loading="lazy" />
+    <!-- ---- Dish 2 ---- -->
+    <article class="dish reveal">
+      <div class="dish-media">
+        <span class="tag">Cheddar</span>
+        <img src="assets/burger-build.jpeg" alt="Cheddar derretido escorrendo sobre o disco de carne" loading="lazy" />
       </div>
-      <div class="coll-body">
-        <h4>Rosbife <em>Especial</em></h4>
-        <span class="it-name">lagarto &amp; ervas finas</span>
+      <div class="dish-text">
+        <div class="no">N.º 02 / Smash</div>
+        <h4>Duplo <em>Cheddar</em></h4>
+        <span class="it-name">para quem é do queijo</span>
         <p>
-          120g de rosbife artesanal de lagarto, queijo Gouda, rúcula fresca,
-          tomate seco e emulsão de ervas finas, servidos no pão ciabatta.
+          Para os viciados em queijo: blend duplo coberto por uma camada generosa
+          de cheddar cremoso, derretido na chapa e despejado por cima até cobrir a
+          carne inteira. Picles crocante e um toque de mostarda pra cortar a
+          gordura. Pão brioche, claro.
         </p>
-        <div class="foot">
-          <span class="gram"><b>120g</b><br />pão ciabatta</span>
+        <div class="meta">
+          <span class="where">No salão e <b>delivery</b></span>
         </div>
+        <a class="more" href="#">Montar o meu →</a>
       </div>
     </article>
 
-    <article class="coll-card reveal">
-      <div class="coll-media">
-        <span class="no">03</span>
-        <span class="tag">Bovino</span>
-        <img src="assets/coll-porto.jpeg" alt="Porto Alegre — iscas de alcatra com chimichurri" loading="lazy" />
+    <!-- ---- Dish 3 ---- -->
+    <article class="dish reveal">
+      <div class="dish-media">
+        <span class="tag">Tábua</span>
+        <img src="assets/board.jpeg" alt="Tábua na brasa com frango, linguiça e pães" loading="lazy" />
       </div>
-      <div class="coll-body">
-        <h4>Porto <em>Alegre</em></h4>
-        <span class="it-name">alcatra &amp; chimichurri</span>
+      <div class="dish-text">
+        <div class="no">N.º 03 / Tábua</div>
+        <h4>Tábua <em>na brasa</em></h4>
+        <span class="it-name">para dividir na mesa</span>
         <p>
-          100g de iscas de alcatra bovina chapeada, queijo Gouda, rúcula fresca e
-          molho chimichurri, servidos no pão baguete parmesão.
+          Nossa tábua para a mesa toda: frango grelhado temperado, linguiça
+          artesanal na brasa, tudo finalizado com cebolinha fresca. Acompanha pão
+          na chapa, salada da casa com chips de banana-da-terra e o molho amarelo
+          que ninguém resiste.
         </p>
-        <div class="foot">
-          <span class="gram"><b>100g</b><br />baguete parmesão</span>
+        <div class="meta">
+          <span class="where">Serve <b>2 a 3 pessoas</b></span>
         </div>
-      </div>
-    </article>
-
-    <article class="coll-card reveal">
-      <div class="coll-media placeholder">
-        <span class="no">04</span>
-        <span class="tag">Suíno</span>
-        <div class="ph">[ foto editorial ]<strong>Linguiça de Bragança</strong>linguiça · farofa de bacon</div>
-      </div>
-      <div class="coll-body">
-        <h4>Linguiça de <em>Bragança</em></h4>
-        <span class="it-name">bacon &amp; farofa artesanal</span>
-        <p>
-          150g de linguiça de Bragança com bacon, emulsão de alho, farofa de bacon
-          artesanal e cebola caramelizada, servidos no pão baguete parmesão.
-        </p>
-        <div class="foot">
-          <span class="gram"><b>150g</b><br />baguete parmesão</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="coll-card reveal">
-      <div class="coll-media">
-        <span class="no">05</span>
-        <span class="tag">Suíno</span>
-        <img src="assets/coll-mineirinho.jpeg" alt="Mineirinho — pernil desfiado com crisps de couve" loading="lazy" />
-      </div>
-      <div class="coll-body">
-        <h4>Mineirinho</h4>
-        <span class="it-name">pernil &amp; minas meia cura</span>
-        <p>
-          130g de pernil refogado, desfiado e finalizado na chapa, queijo Minas
-          meia cura e crisps de couve, servidos no pão baguete parmesão.
-        </p>
-        <div class="foot">
-          <span class="gram"><b>130g</b><br />baguete parmesão</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="coll-card reveal">
-      <div class="coll-media">
-        <span class="no">06</span>
-        <span class="tag">Frango</span>
-        <img src="assets/coll-frango-mineiro.jpeg" alt="Frango Mineiro — frango ao açafrão com crisps de couve" loading="lazy" />
-      </div>
-      <div class="coll-body">
-        <h4>Frango <em>Mineiro</em></h4>
-        <span class="it-name">açafrão &amp; crisps de couve</span>
-        <p>
-          150g de frango desfiado refogado com açafrão e finalizado na chapa,
-          queijo Minas meia cura e crisps de couve, servidos no pão baguete
-          parmesão.
-        </p>
-        <div class="foot">
-          <span class="gram"><b>150g</b><br />baguete parmesão</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="coll-card reveal">
-      <div class="coll-media">
-        <span class="no">07</span>
-        <span class="tag">Frango</span>
-        <img src="assets/coll-frango-acafrao.jpeg" alt="Frango Açafrão — frango ao açafrão com salada fresca" loading="lazy" />
-      </div>
-      <div class="coll-body">
-        <h4>Frango <em>Açafrão</em></h4>
-        <span class="it-name">açafrão &amp; salada fresca</span>
-        <p>
-          150g de frango desfiado refogado com açafrão e finalizado na chapa,
-          emulsão de ervas finas, alface americana, rúcula e tomate fresco,
-          servidos no pão baguete parmesão.
-        </p>
-        <div class="foot">
-          <span class="gram"><b>150g</b><br />baguete parmesão</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="coll-card reveal">
-      <div class="coll-media">
-        <span class="no">08</span>
-        <span class="tag">Oriental</span>
-        <img src="assets/coll-katsu.jpeg" alt="Katsuo Sando — lombo de porco empanado com molho tonkatsu" loading="lazy" />
-      </div>
-      <div class="coll-body">
-        <h4>Katsuo <em>Sando</em></h4>
-        <span class="it-name">katsu de porco &amp; tonkatsu</span>
-        <p>
-          Iguaria oriental adaptada pelo chef: lombo de porco empanado e frito,
-          molho tonkatsu e repolho roxo, servidos no pão artesano.
-        </p>
-        <div class="foot">
-          <span class="gram"><b>Pão</b><br />artesano</span>
-        </div>
+        <a class="more" href="#">Ver a tábua →</a>
       </div>
     </article>
 
