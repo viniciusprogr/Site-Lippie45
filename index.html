@@ -213,9 +213,9 @@
   .menu-foot p{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink-soft);max-width:520px;margin:0}
 
   /* ------------- COLEÇÃO (CARD GRID) ------------- */
-  .coll-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative}
-  .coll-card{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:3px;overflow:hidden}
-  .coll-media{position:relative;aspect-ratio:4/5;overflow:hidden;background:#000}
+  .coll-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;position:relative}
+  .coll-card{display:grid;grid-template-columns:40% 1fr;background:var(--paper);border:1px solid var(--line);border-radius:3px;overflow:hidden;min-height:300px}
+  .coll-media{position:relative;overflow:hidden;background:#000}
   .coll-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
   .coll-card:hover .coll-media img{transform:scale(1.05)}
   .coll-media .no{position:absolute;top:16px;left:16px;font-family:var(--display);font-size:26px;color:var(--cream);text-shadow:0 1px 8px rgba(0,0,0,.5)}
@@ -224,11 +224,11 @@
   .coll-media.placeholder::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent 0 18px,rgba(243,234,216,.04) 18px 19px)}
   .coll-media.placeholder .ph{position:relative;font-family:"Courier New",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,234,216,.55);text-align:center;padding:20px;line-height:1.7}
   .coll-media.placeholder .ph strong{display:block;font-size:13px;color:var(--gold);margin-top:6px;letter-spacing:.26em}
-  .coll-body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1}
-  .coll-body h4{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.02;letter-spacing:-.01em;margin:0 0 4px}
+  .coll-body{padding:30px 30px 28px;display:flex;flex-direction:column;flex:1}
+  .coll-body h4{font-family:var(--display);font-weight:400;font-size:30px;line-height:1.02;letter-spacing:-.01em;margin:0 0 4px}
   .coll-body h4 em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--wine)}
   .coll-body .it-name{font-family:var(--serif);font-style:italic;color:var(--amber);font-size:15px;margin-bottom:18px;display:block}
-  .coll-body p{font-size:13.5px;line-height:1.7;color:var(--ink-soft);margin:0 0 24px}
+  .coll-body p{font-size:14px;line-height:1.7;color:var(--ink-soft);margin:0 0 24px}
   .coll-body .foot{margin-top:auto;display:flex;align-items:center;gap:16px;border-top:1px solid var(--line);padding-top:16px}
   .coll-body .price{font-family:var(--display);font-size:26px;color:var(--ink)}
   .coll-body .gram{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
@@ -243,8 +243,8 @@
   .houses{display:grid;grid-template-columns:1fr 1fr;gap:48px}
   .house{display:flex;flex-direction:column;gap:24px}
   .house-img{aspect-ratio:4/3;overflow:hidden;background:#000;position:relative}
-  .house-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
-  .house:hover .house-img img{transform:scale(1.04)}
+  .house-img img,.house-img video{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .house:hover .house-img img,.house:hover .house-img video{transform:scale(1.04)}
   .house-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
   .house h3{font-family:var(--display);font-weight:400;font-size:42px;line-height:1;margin:0;letter-spacing:-.01em}
   .house h3 em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--gold)}
@@ -393,7 +393,7 @@
     .dish:nth-child(even) .dish-media{order:0}
     .houses{grid-template-columns:1fr}
     .street-grid{grid-template-columns:1fr}
-    .coll-grid{grid-template-columns:1fr 1fr}
+    .coll-grid{grid-template-columns:1fr}
     .foot-top{grid-template-columns:1fr 1fr;gap:40px}
     .deliv-channels{grid-template-columns:1fr}
   }
@@ -432,6 +432,8 @@
     section{padding:64px 20px}
     .foot-top{grid-template-columns:1fr;gap:34px}
     .coll-grid{grid-template-columns:1fr}
+    .coll-card{grid-template-columns:1fr}
+    .coll-media{aspect-ratio:4/3}
   }
 
   /* Short / landscape screens */
@@ -646,7 +648,8 @@
         <div class="ph">[ foto editorial ]<strong>Parma</strong>lombo curado · ciabatta</div>
       </div>
       <div class="coll-body">
-        <h4>Parma</h4>        <span class="it-name">lombo curado &amp; pesto</span>
+        <h4>Parma</h4>
+        <span class="it-name">lombo curado &amp; pesto</span>
         <p>
           130g de lombo suíno curado artesanalmente, queijo Gouda, tomate seco e
           molho pesto, servidos no pão ciabatta.
@@ -696,10 +699,10 @@
     </article>
 
     <article class="coll-card reveal">
-      <div class="coll-media placeholder">
+      <div class="coll-media">
         <span class="no">04</span>
         <span class="tag">Suíno</span>
-        <div class="ph">[ foto editorial ]<strong>Linguiça de Bragança</strong>linguiça · farofa de bacon</div>
+        <img src="assets/coll-linguica.jpeg" alt="Linguiça de Bragança com farofa de bacon e cebola caramelizada" loading="lazy" />
       </div>
       <div class="coll-body">
         <h4>Linguiça de <em>Bragança</em></h4>
@@ -892,7 +895,7 @@
 
     <div class="house reveal">
       <div class="house-img">
-        <img src="assets/venue.jpeg" alt="Salão da Lippie45 com mesas, parede vermelha e cerveja no balde" loading="lazy" />
+        <video src="assets/casa-salao.mp4" autoplay loop muted playsinline></video>
       </div>
       <div class="house-head">
         <h3>O <em>Salão</em></h3>
@@ -917,7 +920,7 @@
 
     <div class="house reveal">
       <div class="house-img">
-        <img src="assets/board-sign.jpeg" alt="Tábua na brasa em frente ao letreiro da Lippie45" loading="lazy" />
+        <video src="assets/casa-brasa.mp4" autoplay loop muted playsinline></video>
       </div>
       <div class="house-head">
         <h3>Na <em>Brasa</em></h3>
